@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ToolData" format=3 uid="uid://tool_pickaxe_t0"]
+
+[ext_resource type="Script" path="res://scripts/data/tool_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"tool_pickaxe_t0"
+display_name = "Cuốc Đá Cuội"
+tool_type = &"pickaxe"
+tier = 0
+power = 1
+dmg = 5

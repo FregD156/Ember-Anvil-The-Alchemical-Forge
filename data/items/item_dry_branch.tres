@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://item_dry_branch_01"]
+
+[ext_resource type="Script" path="res://scripts/data/item_data.gd" id="1_item"]
+
+[resource]
+script = ExtResource("1_item")
+id = &"dry_branch"
+display_name = "Cành Khô"
+description = "Nhiên liệu đốt lò cơ bản (Max 350°C)."
+category = &"fuel"
+tier = 0
+base_sell_price = 1

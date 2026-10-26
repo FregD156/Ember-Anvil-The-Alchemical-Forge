@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponRecipe" format=3 uid="uid://recipe_weapon_dagger_01"]
+
+[ext_resource type="Script" path="res://scripts/data/weapon_recipe.gd" id="1_wrecipe"]
+
+[resource]
+script = ExtResource("1_wrecipe")
+id = &"copper_dagger"
+display_name = "Dao Găm Đồng"
+branch = &"speed"
+required_ingot_id = &"copper_ingot"
+required_ingot_count = 1
+base_atk = 12
+base_durability = 40
+base_price = 20

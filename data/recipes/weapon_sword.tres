@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponRecipe" format=3 uid="uid://recipe_weapon_sword_01"]
+
+[ext_resource type="Script" path="res://scripts/data/weapon_recipe.gd" id="1_wrecipe"]
+
+[resource]
+script = ExtResource("1_wrecipe")
+id = &"copper_sword"
+display_name = "Kiếm Đơn Đồng"
+branch = &"balanced"
+required_ingot_id = &"copper_ingot"
+required_ingot_count = 2
+base_atk = 18
+base_durability = 50
+base_price = 35

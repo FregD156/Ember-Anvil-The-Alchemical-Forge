@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponRecipe" format=3 uid="uid://recipe_weapon_warhammer_01"]
+
+[ext_resource type="Script" path="res://scripts/data/weapon_recipe.gd" id="1_wrecipe"]
+
+[resource]
+script = ExtResource("1_wrecipe")
+id = &"copper_warhammer"
+display_name = "Búa Chiến Đồng"
+branch = &"heavy"
+required_ingot_id = &"copper_ingot"
+required_ingot_count = 4
+base_atk = 32
+base_durability = 65
+base_price = 60

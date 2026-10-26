@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ResourceNodeData" format=3 uid="uid://node_pine_tree_01"]
+
+[ext_resource type="Script" path="res://scripts/data/drop_entry.gd" id="1_drop"]
+[ext_resource type="Script" path="res://scripts/data/resource_node_data.gd" id="2_node"]
+
+[sub_resource type="Resource" id="Resource_drop1"]
+script = ExtResource("1_drop")
+item_id = &"pine_wood"
+min_count = 2
+max_count = 3
+chance = 1.0
+
+[sub_resource type="Resource" id="Resource_drop2"]
+script = ExtResource("1_drop")
+item_id = &"pine_resin"
+min_count = 1
+max_count = 1
+chance = 0.2
+
+[resource]
+script = ExtResource("2_node")
+id = &"node_pine_tree"
+display_name = "Cây Thông"
+tool_type = &"axe"
+max_hp = 60
+hardness = 2
+drops = Array[ExtResource("1_drop")]([SubResource("Resource_drop1"), SubResource("Resource_drop2")])
+respawn_rule = &"daily"

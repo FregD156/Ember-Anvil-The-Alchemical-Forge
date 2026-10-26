@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://player_scene_01"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_player"]
+[ext_resource type="Script" path="res://scripts/components/stamina_component.gd" id="2_stamina"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_feet"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_swing"]
+resource_name = "swing"
+length = 0.28
+step = 0.04
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.12, 0.28),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_on_swing_impact"
+}, {
+"args": [],
+"method": &"_on_swing_finished"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.12, 0.24, 0.28),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.3, 0.4, 0.1, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_player"]
+_data = {
+&"swing": SubResource("Animation_swing")
+}
+
+[sub_resource type="Gradient" id="Gradient_lantern"]
+colors = PackedColorArray(1, 0.8, 0.5, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lantern"]
+gradient = SubResource("Gradient_lantern")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_player")
+
+[node name="StaminaComponent" type="Node" parent="."]
+script = ExtResource("2_stamina")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_feet")
+
+[node name="InteractionRay" type="RayCast2D" parent="."]
+position = Vector2(0, -4)
+target_position = Vector2(0, 18)
+collision_mask = 4
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_player")
+}
+
+[node name="LanternLight" type="PointLight2D" parent="."]
+position = Vector2(0, -8)
+enabled = false
+energy = 0.8
+texture = SubResource("GradientTexture2D_lantern")
+texture_scale = 1.2

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SmeltRecipe" format=3 uid="uid://recipe_copper_ingot_01"]
+
+[ext_resource type="Script" path="res://scripts/data/smelt_recipe.gd" id="1_recipe"]
+
+[resource]
+script = ExtResource("1_recipe")
+id = &"recipe_copper_ingot"
+display_name = "Phôi Đồng Đỏ (300°C)"
+input_ore_id = &"copper_ore"
+input_ore_count = 3
+melting_point = 300.0
+cook_duration = 6.0
+output_item_id = &"copper_ingot"
+output_item_count = 1

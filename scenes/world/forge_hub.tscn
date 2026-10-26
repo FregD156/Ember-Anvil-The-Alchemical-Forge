@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://forge_hub_01"]
+
+[ext_resource type="Script" path="res://scripts/components/safe_zone_area.gd" id="1_safe_zone"]
+[ext_resource type="PackedScene" path="res://scenes/stations/station_furnace.tscn" id="2_furnace"]
+[ext_resource type="PackedScene" path="res://scenes/stations/station_anvil.tscn" id="3_anvil"]
+[ext_resource type="PackedScene" path="res://scenes/stations/station_grinder.tscn" id="4_grinder"]
+[ext_resource type="PackedScene" path="res://scenes/stations/station_bed.tscn" id="5_bed"]
+[ext_resource type="PackedScene" path="res://scenes/stations/station_dispatch_board.tscn" id="6_board"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_safe_zone"]
+size = Vector2(360, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_h"]
+size = Vector2(400, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_v"]
+size = Vector2(16, 260)
+
+[node name="ForgeHub" type="Node2D"]
+y_sort_enabled = true
+
+[node name="FloorVisual" type="ColorRect" parent="."]
+offset_left = -200.0
+offset_top = -120.0
+offset_right = 200.0
+offset_bottom = 120.0
+color = Color(0.169, 0.106, 0.090, 1)
+
+[node name="SafeZoneArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_safe_zone")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeZoneArea"]
+shape = SubResource("RectangleShape2D_safe_zone")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="WallSouth" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 128)
+shape = SubResource("RectangleShape2D_wall_h")
+
+[node name="WallWest" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-208, 0)
+shape = SubResource("RectangleShape2D_wall_v")
+
+[node name="WallEast" type="CollisionShape2D" parent="Walls"]
+position = Vector2(208, 0)
+shape = SubResource("RectangleShape2D_wall_v")
+
+[node name="WallNorthLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-120, -128)
+shape = SubResource("RectangleShape2D_wall_h")
+
+[node name="WallNorthRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(120, -128)
+shape = SubResource("RectangleShape2D_wall_h")
+
+[node name="StationDispatchBoard" parent="." instance=ExtResource("6_board")]
+position = Vector2(-130, -60)
+
+[node name="StationFurnace" parent="." instance=ExtResource("2_furnace")]
+position = Vector2(-70, -30)
+
+[node name="StationAnvil" parent="." instance=ExtResource("3_anvil")]
+position = Vector2(0, -30)
+
+[node name="StationGrinder" parent="." instance=ExtResource("4_grinder")]
+position = Vector2(60, -30)
+
+[node name="StationBed" parent="." instance=ExtResource("5_bed")]
+position = Vector2(130, -60)
+
+[node name="HubSign" type="Label" parent="."]
+offset_left = -80.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 103.0
+text = "XƯỞNG RÈN HUB (KHU AN TOÀN)"
+horizontal_alignment = 1
+
+[node name="NorthExitPrompt" type="Label" parent="."]
+offset_left = -60.0
+offset_top = -120.0
+offset_right = 60.0
+offset_bottom = -97.0
+text = "↑ Lối ra Vùng Hoang Dã"
+horizontal_alignment = 1

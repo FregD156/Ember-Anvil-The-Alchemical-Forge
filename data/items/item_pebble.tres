@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://item_pebble_01"]
+
+[ext_resource type="Script" path="res://scripts/data/item_data.gd" id="1_item"]
+
+[resource]
+script = ExtResource("1_item")
+id = &"pebble"
+display_name = "Đá Cuội"
+description = "Đá nhặt ven đường, dùng chế tạo công cụ thô."
+category = &"stone"
+tier = 0
+base_sell_price = 1

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://live_expedition_01"]
+
+[ext_resource type="Script" path="res://scripts/viewport/live_expedition.gd" id="1_expedition"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp_fill"]
+bg_color = Color(0.369, 0.569, 0.314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boss_fill"]
+bg_color = Color(0.831, 0.329, 0.169, 1)
+
+[node name="LiveExpedition" type="Node2D"]
+script = ExtResource("1_expedition")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 192.0
+offset_bottom = 108.0
+color = Color(0.122, 0.227, 0.302, 1)
+
+[node name="Ground" type="ColorRect" parent="."]
+offset_top = 80.0
+offset_right = 192.0
+offset_bottom = 108.0
+color = Color(0.169, 0.106, 0.090, 1)
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="AdventurerSprite" type="Sprite2D" parent="World"]
+position = Vector2(45, 70)
+
+[node name="MonsterSprite" type="Sprite2D" parent="World"]
+position = Vector2(145, 70)
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 192.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StageLabel" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 18.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 9
+text = "ẢI 1/3: VƯỢT QUÁI"
+horizontal_alignment = 1
+
+[node name="AdventurerHpBar" type="ProgressBar" parent="HUD"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 18.0
+offset_right = 62.0
+offset_bottom = 22.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_hp_fill")
+value = 100.0
+show_percentage = false
+
+[node name="BossContainer" type="Control" parent="HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -70.0
+offset_top = 18.0
+offset_right = -10.0
+offset_bottom = 26.0
+grow_horizontal = 0
+
+[node name="BossHpBar" type="ProgressBar" parent="HUD/BossContainer"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 4.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_boss_fill")
+value = 100.0
+show_percentage = false

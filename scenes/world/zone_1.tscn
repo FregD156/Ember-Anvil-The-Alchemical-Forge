@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://zone_1_forest_01"]
+
+[ext_resource type="PackedScene" path="res://scenes/nodes/resource_node.tscn" id="1_node_scene"]
+[ext_resource type="Resource" path="res://data/nodes/node_dry_shrub.tres" id="2_shrub_data"]
+[ext_resource type="Resource" path="res://data/nodes/node_pebble.tres" id="3_pebble_data"]
+[ext_resource type="Resource" path="res://data/nodes/node_shallow_copper.tres" id="4_copper_data"]
+[ext_resource type="Resource" path="res://data/nodes/node_pine_tree.tres" id="5_pine_data"]
+
+[node name="Zone1Forest" type="Node2D"]
+y_sort_enabled = true
+
+[node name="GroundVisual" type="ColorRect" parent="."]
+offset_left = -320.0
+offset_top = -480.0
+offset_right = 320.0
+offset_bottom = -140.0
+color = Color(0.149, 0.290, 0.227, 1)
+
+[node name="Zone1Label" type="Label" parent="."]
+offset_left = -100.0
+offset_top = -180.0
+offset_right = 100.0
+offset_bottom = -157.0
+text = "ZONE 1: BÌA RỪNG THÔNG"
+horizontal_alignment = 1
+
+[node name="DryShrub_1" parent="." instance=ExtResource("1_node_scene")]
+position = Vector2(-120, -260)
+data = ExtResource("2_shrub_data")
+
+[node name="DryShrub_2" parent="." instance=ExtResource("1_node_scene")]
+position = Vector2(-60, -320)
+data = ExtResource("2_shrub_data")
+
+[node name="Pebble_1" parent="." instance=ExtResource("1_node_scene")]
+position = Vector2(80, -250)
+data = ExtResource("3_pebble_data")
+
+[node name="Pebble_2" parent="." instance=ExtResource("1_node_scene")]
+position = Vector2(140, -310)
+data = ExtResource("3_pebble_data")
+
+[node name="CopperMine_1" parent="." instance=ExtResource("1_node_scene")]
+position = Vector2(-160, -380)
+data = ExtResource("4_copper_data")
+
+[node name="CopperMine_2" parent="." instance=ExtResource("1_node_scene")]
+position = Vector2(-90, -420)
+data = ExtResource("4_copper_data")
+
+[node name="CopperMine_3" parent="." instance=ExtResource("1_node_scene")]
+position = Vector2(100, -400)
+data = ExtResource("4_copper_data")
+
+[node name="PineTree_1" parent="." instance=ExtResource("1_node_scene")]
+position = Vector2(0, -360)
+data = ExtResource("5_pine_data")
+
+[node name="PineTree_2" parent="." instance=ExtResource("1_node_scene")]
+position = Vector2(180, -430)
+data = ExtResource("5_pine_data")

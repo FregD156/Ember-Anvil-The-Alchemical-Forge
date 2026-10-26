@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://item_copper_ingot_01"]
+
+[ext_resource type="Script" path="res://scripts/data/item_data.gd" id="1_item"]
+
+[resource]
+script = ExtResource("1_item")
+id = &"copper_ingot"
+display_name = "Phôi Đồng Đỏ"
+description = "Được luyện từ 3 Quặng Đồng trong Lò Nung (300°C)."
+category = &"ingot"
+tier = 0
+base_sell_price = 10

@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://forging_overlay_01"]
+
+[ext_resource type="Script" path="res://scripts/ui/forging_overlay.gd" id="1_forging"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.165, 0.141, 0.220, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.788, 0.604, 0.235, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_track"]
+bg_color = Color(0.1, 0.09, 0.14, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.42, 0.37, 0.49, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grinder_fill"]
+bg_color = Color(0.949, 0.549, 0.2, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="ForgingOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_forging")
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(340, 260)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -130.0
+offset_right = 170.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.784, 0.290, 1)
+text = "ĐE RÈN & ĐÁ MÀI"
+horizontal_alignment = 1
+
+[node name="DescLabel" type="Label" parent="Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Chọn vũ khí để rèn."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AnvilContainer" type="VBoxContainer" parent="Panel/Margin/VBox"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="SliderTrack" type="Panel" parent="Panel/Margin/VBox/AnvilContainer"]
+custom_minimum_size = Vector2(120, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_track")
+
+[node name="GreenZone" type="ColorRect" parent="Panel/Margin/VBox/AnvilContainer/SliderTrack"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 1.0
+offset_right = 84.0
+offset_bottom = 15.0
+color = Color(0.369, 0.569, 0.314, 0.8)
+
+[node name="GoldZone" type="ColorRect" parent="Panel/Margin/VBox/AnvilContainer/SliderTrack"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 1.0
+offset_right = 66.0
+offset_bottom = 15.0
+color = Color(1, 0.784, 0.290, 0.95)
+
+[node name="Cursor" type="ColorRect" parent="Panel/Margin/VBox/AnvilContainer/SliderTrack"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 6.0
+offset_bottom = 15.0
+color = Color(1, 1, 1, 1)
+
+[node name="StrikesLabel" type="Label" parent="Panel/Margin/VBox/AnvilContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Số nhát búa còn lại: 3"
+horizontal_alignment = 1
+
+[node name="GrinderContainer" type="VBoxContainer" parent="Panel/Margin/VBox"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="GrinderBar" type="ProgressBar" parent="Panel/Margin/VBox/GrinderContainer"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_grinder_fill")
+value = 50.0
+show_percentage = false
+
+[node name="TimerLabel" type="Label" parent="Panel/Margin/VBox/GrinderContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Thời gian mài: 3.0s"
+horizontal_alignment = 1
+
+[node name="ResultContainer" type="VBoxContainer" parent="Panel/Margin/VBox"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ScoreLabel" type="Label" parent="Panel/Margin/VBox/ResultContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Tổng điểm Phẩm chất: 80 / 100"
+horizontal_alignment = 1
+
+[node name="RankLabel" type="Label" parent="Panel/Margin/VBox/ResultContainer"]
+layout_mode = 2
+text = "Xếp hạng: Tinh Xảo"
+horizontal_alignment = 1
+
+[node name="StatsLabel" type="Label" parent="Panel/Margin/VBox/ResultContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "ATK: 22 | Độ bền: 65 | Giá bán: 52 Vàng"
+horizontal_alignment = 1
+
+[node name="Actions" type="HBoxContainer" parent="Panel/Margin/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="StartButton" type="Button" parent="Panel/Margin/VBox/Actions"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+text = "Bắt đầu rèn"
+
+[node name="CloseButton" type="Button" parent="Panel/Margin/VBox/Actions"]
+custom_minimum_size = Vector2(80, 24)
+layout_mode = 2
+text = "Đóng"
