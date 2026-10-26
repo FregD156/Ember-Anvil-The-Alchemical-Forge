@@ -26,6 +26,7 @@
 | **Zone 1: Bìa Rừng Thông (Thử nghiệm)** | Hoàn thành | Bố trí Bụi cây khô, Đá cuội, Mỏ đồng nông, Cây thông |
 | **Công cụ hậu xử lý ảnh (`postprocess.py`)** | Hoàn thành | Khóa 40 màu palette, binary alpha, kiểm tra Y-sort đáy sprite |
 | **Bộ kiểm thử tự động (Unit Tests)** | Hoàn thành | **10/10 tests pass 100%** không lỗi |
+| **Khởi tạo GitHub Repository** | Hoàn thành | Đã tạo và push lên `FregD156/Ember-Anvil-The-Alchemical-Forge` (Public) |
 
 ---
 
